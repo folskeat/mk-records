@@ -18,6 +18,7 @@
       <img src="data/courses/cups/bell_icon.png">
       <img src="data/courses/cups/lucky-cat_icon.png">
     </div>
+    <div class="break"></div>
     <div class="tracks" v-if="mushroom">
       <MushroomCup />
     </div>
@@ -42,6 +43,8 @@
 .cups img {
   width: 150px;
   height: 150px;
+
+  cursor: pointer;
 }
 </style>
 
