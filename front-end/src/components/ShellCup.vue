@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/shell/moo_moo_meadows.webp">
-      <img src="data/courses/tracks/shell/mario_circuit.webp">
-      <img src="data/courses/tracks/shell/cheep_cheep_beach.webp">
-      <img src="data/courses/tracks/shell/toad's_turnpike.webp">
+      <img src="~@/assets/data/courses/tracks/shell/moo_moo_meadows.webp">
+      <img src="~@/assets/data/courses/tracks/shell/mario_circuit.webp">
+      <img src="~@/assets/data/courses/tracks/shell/cheep_cheep_beach.webp">
+      <img src="~@/assets/data/courses/tracks/shell/toad's_turnpike.webp">
     </div>
   </div>
 </template>

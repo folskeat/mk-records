@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/bell/neo_bowser_city.webp">
-      <img src="data/courses/tracks/bell/ribbon_road.webp">
-      <img src="data/courses/tracks/bell/super_bell_subway.webp">
-      <img src="data/courses/tracks/bell/big_blue.webp">
+      <img src="~@/assets/data/courses/tracks/bell/neo_bowser_city.webp">
+      <img src="~@/assets/data/courses/tracks/bell/ribbon_road.webp">
+      <img src="~@/assets/data/courses/tracks/bell/super_bell_subway.webp">
+      <img src="~@/assets/data/courses/tracks/bell/big_blue.webp">
     </div>
   </div>
 </template>

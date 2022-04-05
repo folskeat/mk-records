@@ -30,7 +30,6 @@
         <div class="golden-dash cup" @click="goldendashcup" v-if="!golden_dash"></div>
         <div class="golden-dashclick cup" @click="goldendashcupcup" v-if="golden_dash"></div>
       </figure>
-      <div class="break"></div>
       <figure class="swing">
         <div class="shell cup" @click="shellcup" v-if="!shell"></div>
         <div class="shellclick cup" @click="shellcup" v-if="shell"></div>
@@ -103,7 +102,10 @@
     <div class="tracks" v-if="lucky_cat">
       <LuckyCatCup />
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="break"></div>
+    <div class="break"></div>
+    <div class="break"></div>
+    <div class="break"></div>
   </div>
 </template>
 
@@ -306,6 +308,10 @@
 /* NEW */
 body {background: #eee;}
 
+figure {
+  width: auto;
+}
+
 .swing:hover {
     animation: swing ease-in-out 1s infinite alternate;
     transform-origin: center;
@@ -320,7 +326,6 @@ body {background: #eee;}
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import MushroomCup from '@/components/MushroomCup.vue'
 import FlowerCup from '@/components/FlowerCup.vue'
 import StarCup from '@/components/StarCup.vue'
@@ -339,7 +344,6 @@ import LuckyCatCup from '@/components/LuckyCatCup.vue'
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld,
     MushroomCup,
     FlowerCup,
     StarCup,

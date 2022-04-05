@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/flower/mario_circuit.webp">
-      <img src="data/courses/tracks/flower/toad_harbor.webp">
-      <img src="data/courses/tracks/flower/twisted_mansion.webp">
-      <img src="data/courses/tracks/flower/shy_guy_falls.webp">
+      <img src="~@/assets/data/courses/tracks/flower/mario_circuit.webp">
+      <img src="~@/assets/data/courses/tracks/flower/toad_harbor.webp">
+      <img src="~@/assets/data/courses/tracks/flower/twisted_mansion.webp">
+      <img src="~@/assets/data/courses/tracks/flower/shy_guy_falls.webp">
     </div>
   </div>
 </template>

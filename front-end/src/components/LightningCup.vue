@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/lightning/tick-tock_clock.webp">
-      <img src="data/courses/tracks/lightning/piranha_plant_slide.webp">
-      <img src="data/courses/tracks/lightning/grumble_volcano.webp">
-      <img src="data/courses/tracks/lightning/rainbow_road.webp">
+      <img src="~@/assets/data/courses/tracks/lightning/tick-tock_clock.webp">
+      <img src="~@/assets/data/courses/tracks/lightning/piranha_plant_slide.webp">
+      <img src="~@/assets/data/courses/tracks/lightning/grumble_volcano.webp">
+      <img src="~@/assets/data/courses/tracks/lightning/rainbow_road.webp">
     </div>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/lucky-cat/tokyo_blur.webp">
-      <img src="data/courses/tracks/lucky-cat/shroom_ridge.png">
-      <img src="data/courses/tracks/lucky-cat/sky_garden.png">
-      <img src="data/courses/tracks/lucky-cat/ninja_hideaway.webp">
+      <img src="~@/assets/data/courses/tracks/lucky-cat/tokyo_blur.webp">
+      <img src="~@/assets/data/courses/tracks/lucky-cat/shroom_ridge.png">
+      <img src="~@/assets/data/courses/tracks/lucky-cat/sky_garden.png">
+      <img src="~@/assets/data/courses/tracks/lucky-cat/ninja_hideaway.webp">
     </div>
   </div>
 </template>

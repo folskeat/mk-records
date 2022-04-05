@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/crossing/baby_park.webp">
-      <img src="data/courses/tracks/crossing/cheese_land.webp">
-      <img src="data/courses/tracks/crossing/wild_woods.webp">
-      <img src="data/courses/tracks/crossing/animal_crossing.webp">
+      <img src="~@/assets/data/courses/tracks/crossing/baby_park.webp">
+      <img src="~@/assets/data/courses/tracks/crossing/cheese_land.webp">
+      <img src="~@/assets/data/courses/tracks/crossing/wild_woods.webp">
+      <img src="~@/assets/data/courses/tracks/crossing/animal_crossing.webp">
     </div>
   </div>
 </template>

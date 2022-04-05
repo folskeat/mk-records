@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/egg/yoshi_circuit.webp">
-      <img src="data/courses/tracks/egg/excitebike_arena.webp">
-      <img src="data/courses/tracks/egg/dragon_driftway.webp">
-      <img src="data/courses/tracks/egg/mute_city.webp">
+      <img src="~@/assets/data/courses/tracks/egg/yoshi_circuit.webp">
+      <img src="~@/assets/data/courses/tracks/egg/excitebike_arena.webp">
+      <img src="~@/assets/data/courses/tracks/egg/dragon_driftway.webp">
+      <img src="~@/assets/data/courses/tracks/egg/mute_city.webp">
     </div>
   </div>
 </template>

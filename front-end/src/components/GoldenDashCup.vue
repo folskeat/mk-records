@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/golden-dash/paris_promenade.png">
-      <img src="data/courses/tracks/golden-dash/toad_circuit.png">
-      <img src="data/courses/tracks/golden-dash/choco_mountain.png">
-      <img src="data/courses/tracks/golden-dash/coconut_mall.png">
+      <img src="~@/assets/data/courses/tracks/golden-dash/paris_promenade.png">
+      <img src="~@/assets/data/courses/tracks/golden-dash/toad_circuit.png">
+      <img src="~@/assets/data/courses/tracks/golden-dash/choco_mountain.png">
+      <img src="~@/assets/data/courses/tracks/golden-dash/coconut_mall.png">
     </div>
   </div>
 </template>

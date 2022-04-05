@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/leaf/wario_stadium.webp">
-      <img src="data/courses/tracks/leaf/sherbet_land.webp">
-      <img src="data/courses/tracks/leaf/music_park.webp">
-      <img src="data/courses/tracks/leaf/yoshi_valley.webp">
+      <img src="~@/assets/data/courses/tracks/leaf/wario_stadium.webp">
+      <img src="~@/assets/data/courses/tracks/leaf/sherbet_land.webp">
+      <img src="~@/assets/data/courses/tracks/leaf/music_park.webp">
+      <img src="~@/assets/data/courses/tracks/leaf/yoshi_valley.webp">
     </div>
   </div>
 </template>

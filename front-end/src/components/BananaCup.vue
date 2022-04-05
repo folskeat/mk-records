@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/banana/dry_dry_desert.webp">
-      <img src="data/courses/tracks/banana/donut_plains_3.webp">
-      <img src="data/courses/tracks/banana/royal_raceway.webp">
-      <img src="data/courses/tracks/banana/dk_jungle.webp">
+      <img src="~@/assets/data/courses/tracks/banana/dry_dry_desert.webp">
+      <img src="~@/assets/data/courses/tracks/banana/donut_plains_3.webp">
+      <img src="~@/assets/data/courses/tracks/banana/royal_raceway.webp">
+      <img src="~@/assets/data/courses/tracks/banana/dk_jungle.webp">
     </div>
   </div>
 </template>

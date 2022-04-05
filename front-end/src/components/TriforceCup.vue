@@ -1,10 +1,10 @@
 <template>
   <div class="section">
     <div class="tracks">
-      <img src="data/courses/tracks/triforce/wario's_gold_mine.webp">
-      <img src="data/courses/tracks/triforce/rainbow_road.webp">
-      <img src="data/courses/tracks/triforce/ice_ice_outpost.webp">
-      <img src="data/courses/tracks/triforce/hyrule_circuit.webp">
+      <img src="~@/assets/data/courses/tracks/triforce/wario's_gold_mine.webp">
+      <img src="~@/assets/data/courses/tracks/triforce/rainbow_road.webp">
+      <img src="~@/assets/data/courses/tracks/triforce/ice_ice_outpost.webp">
+      <img src="~@/assets/data/courses/tracks/triforce/hyrule_circuit.webp">
     </div>
   </div>
 </template>
