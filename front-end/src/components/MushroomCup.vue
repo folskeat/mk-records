@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <div class="section">
       <div class="tracks">
         <img src="~@/assets/data/courses/tracks/mushroom/mario_kart_stadium.webp" @click="show(); marioKartStadium()">
@@ -152,6 +152,13 @@
 </template>
 
 <style scoped>
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -167,19 +174,29 @@ td, th {
 }
 
 .section {
+  width: 100%;
+
   display: flex;
   align-items: center;
   align-content: center;
   align-self: center;
   justify-content: center;
+  overflow: auto;
+
+  padding: 0;
+  margin: 0;
 }
 
 .tracks {
   display: flex;
   justify-content: space-around;
+  
+  flex-wrap: wrap;
 
   width: 1000px;
   height: 149px;
+
+  overflow: auto;
 }
 
 .tracks img {
@@ -198,11 +215,21 @@ td, th {
   display: flex;
   flex-direction: column;
   align-self: center;
+
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  flex-wrap: nowrap;
 }
 
 .records table {
   width: 900px;
   align-self: center;
+
+  table-layout: fixed;
+  overflow: auto;
+  position: relative;
 }
 
 .add {

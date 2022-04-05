@@ -110,6 +110,11 @@
 </template>
 
 <style scoped>
+
+.track {
+  overflow: auto;
+}
+
 .break {
   flex-basis: 100%;
   height: 30px;
@@ -121,13 +126,6 @@
   align-content: center;
   align-items: center;
   justify-content: space-around;
-}
-
-.cups img {
-  width: 150px;
-  height: 150px;
-
-  cursor: pointer;
 }
 
 .cup {
@@ -313,14 +311,14 @@ figure {
 }
 
 .swing:hover {
-    animation: swing ease-in-out 1s infinite alternate;
-    transform-origin: center;
-    float: left;
+  animation: swing ease-in-out 1s infinite alternate;
+  transform-origin: center;
+  float: left;
 }
  
 @keyframes swing {
-    0% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
+  0% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
 }
 </style>
 
