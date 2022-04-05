@@ -41,12 +41,12 @@
                 <br />
                 {{item.character}}
               </td>
-              <td>
+              <td class="wider">
                 <img :src="require('@/assets/data/carts/body/' + getImg(item.body) + '.png')" />
                 <br />
                 {{item.body}}
               </td>
-              <td>
+              <td class="wider">
                 <img :src="require('@/assets/data/carts/wheels/' + getImg(item.wheels) + '.png')" />
                 <br />
                 {{item.wheels}}
@@ -322,6 +322,10 @@ td, th {
 .records img {
   width: 30px;
   height: 30px;
+}
+
+.wider img {
+  width: 45px;
 }
 
 .add {
