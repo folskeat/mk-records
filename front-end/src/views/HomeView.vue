@@ -10,19 +10,55 @@
         <div class="flower cup" @click="flowercup" v-if="!flower"></div>
         <div class="flowerclick cup" @click="flowercup" v-if="flower"></div>
       </figure>
-      <img src="data/courses/cups/star_icon.png">
-      <img src="data/courses/cups/special_icon.png">
-      <img src="data/courses/cups/egg_icon.png">
-      <img src="data/courses/cups/triforce_icon.png">
-      <img src="data/courses/cups/golden-dash_icon.png">
+      <figure class="swing">
+        <div class="star cup" @click="starcup" v-if="!star"></div>
+        <div class="starclick cup" @click="starcup" v-if="star"></div>
+      </figure>
+      <figure class="swing">
+        <div class="special cup" @click="specialcup" v-if="!special"></div>
+        <div class="specialclick cup" @click="specialcup" v-if="special"></div>
+      </figure>
+      <figure class="swing">
+        <div class="egg cup" @click="eggcup" v-if="!egg"></div>
+        <div class="eggclick cup" @click="eggcup" v-if="egg"></div>
+      </figure>
+      <figure class="swing">
+        <div class="triforce cup" @click="triforcecup" v-if="!triforce"></div>
+        <div class="triforceclick cup" @click="triforcecup" v-if="triforce"></div>
+      </figure>
+      <figure class="swing">
+        <div class="golden-dash cup" @click="goldendashcup" v-if="!golden_dash"></div>
+        <div class="golden-dashclick cup" @click="goldendashcupcup" v-if="golden_dash"></div>
+      </figure>
       <div class="break"></div>
-      <img src="data/courses/cups/shell_icon.png">
-      <img src="data/courses/cups/banana_icon.png">
-      <img src="data/courses/cups/leaf_icon.png">
-      <img src="data/courses/cups/lightning_icon.png">
-      <img src="data/courses/cups/crossing_icon.png">
-      <img src="data/courses/cups/bell_icon.png">
-      <img src="data/courses/cups/lucky-cat_icon.png">
+      <figure class="swing">
+        <div class="shell cup" @click="shellcup" v-if="!shell"></div>
+        <div class="shellclick cup" @click="shellcup" v-if="shell"></div>
+      </figure>
+      <figure class="swing">
+        <div class="banana cup" @click="bananacup" v-if="!banana"></div>
+        <div class="bananaclick cup" @click="bananacup" v-if="banana"></div>
+      </figure>
+      <figure class="swing">
+        <div class="leaf cup" @click="leafcup" v-if="!leaf"></div>
+        <div class="leafclick cup" @click="leafcup" v-if="leaf"></div>
+      </figure>
+      <figure class="swing">
+        <div class="lightning cup" @click="lightningcup" v-if="!lightning"></div>
+        <div class="lightningclick cup" @click="lightningcup" v-if="lightning"></div>
+      </figure>
+      <figure class="swing">
+        <div class="crossing cup" @click="crossingcup" v-if="!crossing"></div>
+        <div class="crossingclick cup" @click="crossingcup" v-if="crossing"></div>
+      </figure>
+      <figure class="swing">
+        <div class="bell cup" @click="bellcup" v-if="!bell"></div>
+        <div class="bellclick cup" @click="bellcup" v-if="bell"></div>
+      </figure>
+      <figure class="swing">
+        <div class="lucky-cat cup" @click="luckycatcup" v-if="!lucky_cat"></div>
+        <div class="lucky-catclick cup" @click="luckycatcup" v-if="lucky_cat"></div>
+      </figure>
     </div>
     <div class="break"></div>
     <div class="tracks" v-if="mushroom">
@@ -80,6 +116,150 @@
 
 .flowerclick {
   background-image: url('~@/assets/data/courses/cups/flower_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.star {
+  background-image: url('~@/assets/data/courses/cups/star_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.starclick {
+  background-image: url('~@/assets/data/courses/cups/star_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.special {
+  background-image: url('~@/assets/data/courses/cups/special_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.specialclick {
+  background-image: url('~@/assets/data/courses/cups/special_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.egg {
+  background-image: url('~@/assets/data/courses/cups/egg_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.eggclick {
+  background-image: url('~@/assets/data/courses/cups/egg_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.triforce {
+  background-image: url('~@/assets/data/courses/cups/triforce_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.triforceclick {
+  background-image: url('~@/assets/data/courses/cups/triforce_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.golden-dash {
+  background-image: url('~@/assets/data/courses/cups/golden-dash_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.golden-dashclick {
+  background-image: url('~@/assets/data/courses/cups/golden-dash_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.shell {
+  background-image: url('~@/assets/data/courses/cups/shell_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.shellclick {
+  background-image: url('~@/assets/data/courses/cups/shell_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.banana {
+  background-image: url('~@/assets/data/courses/cups/banana_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.bananaclick {
+  background-image: url('~@/assets/data/courses/cups/banana_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.leaf {
+  background-image: url('~@/assets/data/courses/cups/leaf_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.leafclick {
+  background-image: url('~@/assets/data/courses/cups/leaf_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.lightning {
+  background-image: url('~@/assets/data/courses/cups/lightning_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.lightningclick {
+  background-image: url('~@/assets/data/courses/cups/lightning_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.crossing {
+  background-image: url('~@/assets/data/courses/cups/crossing_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.crossingclick {
+  background-image: url('~@/assets/data/courses/cups/crossing_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.bell {
+  background-image: url('~@/assets/data/courses/cups/bell_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.bellclick {
+  background-image: url('~@/assets/data/courses/cups/bell_click.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.lucky-cat {
+  background-image: url('~@/assets/data/courses/cups/lucky-cat_icon.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+.lucky-catclick {
+  background-image: url('~@/assets/data/courses/cups/lucky-cat_click.png');
   background-repeat: no-repeat;
   background-size: 150px;
 }
