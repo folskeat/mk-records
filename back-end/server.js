@@ -18,7 +18,9 @@ mongoose.connect('mongodb://localhost:27017/mk-records', {
 const itemSchema = new mongoose.Schema({
   track: String,
   racer: String,
-  time: String,
+  minute: String,
+  second: String,
+  milli: String,
   body: String,
   wheels: String,
   glider: String,
@@ -32,7 +34,9 @@ app.post('/api/items', async (req, res) => {
   const item = new Item({
     track: req.body.track,
     racer: req.body.racer,
-    time: req.body.time,
+    minute: req.body.minute,
+    second: req.body.second,
+    milli: req.body.milli,
     body: req.body.body,
     wheels: req.body.wheels,
     glider: req.body.glider,
@@ -75,7 +79,9 @@ app.put('/api/items/:id', async (req, res) => {
     let item = await Item.findOne({
       _id: req.params.id
     });
-    item.time = req.body.time;
+    item.minute = req.body.minute;
+    item.second = req.body.second;
+    item.milli = req.body.milli;
     item.body = req.body.body;
     await item.save();
     res.sendStatus(200);
