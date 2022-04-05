@@ -64,6 +64,45 @@
     <div class="tracks" v-if="mushroom">
       <MushroomCup />
     </div>
+    <div class="tracks" v-if="flower">
+      <FlowerCup />
+    </div>
+    <div class="tracks" v-if="star">
+      <StarCup />
+    </div>
+    <div class="tracks" v-if="special">
+      <SpecialCup />
+    </div>
+    <div class="tracks" v-if="egg">
+      <EggCup />
+    </div>
+    <div class="tracks" v-if="triforce">
+      <TriforceCup />
+    </div>
+    <div class="tracks" v-if="golden_dash">
+      <GoldenDashCup />
+    </div>
+    <div class="tracks" v-if="shell">
+      <ShellCup />
+    </div>
+    <div class="tracks" v-if="banana">
+      <BananaCup />
+    </div>
+    <div class="tracks" v-if="leaf">
+      <LeafCup />
+    </div>
+    <div class="tracks" v-if="lightning">
+      <LightningCup />
+    </div>
+    <div class="tracks" v-if="crossing">
+      <CrossingCup />
+    </div>
+    <div class="tracks" v-if="bell">
+      <BellCup />
+    </div>
+    <div class="tracks" v-if="lucky_cat">
+      <LuckyCatCup />
+    </div>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -283,12 +322,38 @@ body {background: #eee;}
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
 import MushroomCup from '@/components/MushroomCup.vue'
+import FlowerCup from '@/components/FlowerCup.vue'
+import StarCup from '@/components/StarCup.vue'
+import SpecialCup from '@/components/SpecialCup.vue'
+import EggCup from '@/components/EggCup.vue'
+import TriforceCup from '@/components/TriforceCup.vue'
+import GoldenDashCup from '@/components/GoldenDashCup.vue'
+import ShellCup from '@/components/ShellCup.vue'
+import BananaCup from '@/components/BananaCup.vue'
+import LeafCup from '@/components/LeafCup.vue'
+import LightningCup from '@/components/LightningCup.vue'
+import CrossingCup from '@/components/CrossingCup.vue'
+import BellCup from '@/components/BellCup.vue'
+import LuckyCatCup from '@/components/LuckyCatCup.vue'
 
 export default {
   name: 'HomeView',
   components: {
     HelloWorld,
     MushroomCup,
+    FlowerCup,
+    StarCup,
+    SpecialCup,
+    EggCup,
+    TriforceCup,
+    GoldenDashCup,
+    ShellCup,
+    BananaCup,
+    LeafCup,
+    LightningCup,
+    CrossingCup,
+    BellCup,
+    LuckyCatCup,
   },
   data() {
     return {
