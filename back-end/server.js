@@ -21,6 +21,7 @@ const itemSchema = new mongoose.Schema({
   minute: String,
   second: String,
   milli: String,
+  character: String,
   body: String,
   wheels: String,
   glider: String,
@@ -37,6 +38,7 @@ app.post('/api/items', async (req, res) => {
     minute: req.body.minute,
     second: req.body.second,
     milli: req.body.milli,
+    character: req.body.character,
     body: req.body.body,
     wheels: req.body.wheels,
     glider: req.body.glider,
@@ -82,7 +84,10 @@ app.put('/api/items/:id', async (req, res) => {
     item.minute = req.body.minute;
     item.second = req.body.second;
     item.milli = req.body.milli;
+    item.character = req.body.character;
     item.body = req.body.body;
+    item.wheels = req.body.wheels;
+    item.glider = req.body.glider;
     await item.save();
     res.sendStatus(200);
   } catch (error) {

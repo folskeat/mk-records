@@ -11,9 +11,12 @@
 
     <div class="break"></div>
 
+    <div v-if="showing">
+      <h1>Records for {{this.trackName}}</h1>
+    </div>
+
     <div class="section">
       <div class="records" v-if="showing">
-        <h1>Records for {{this.trackName}}</h1>
         <div class="break"></div>
         <table>
           <thead>
@@ -21,6 +24,7 @@
               <th>Rank</th>
               <th>Racer</th>
               <th>Time</th>
+              <th>Character</th>
               <th>Kart</th>
               <th>Wheels</th>
               <th>Glider</th>
@@ -32,9 +36,26 @@
               <td>{{index + 1}}</td>
               <td>{{item.racer}}</td>
               <td>{{calctime(item)}}</td>
-              <td>{{item.body}}</td>
-              <td>{{item.wheels}}</td>
-              <td>{{item.glider}}</td>
+              <td>
+                <img :src="require('@/assets/data/carts/character/' + getImg(item.character) + '.png')" />
+                <br />
+                {{item.character}}
+              </td>
+              <td>
+                <img :src="require('@/assets/data/carts/body/' + getImg(item.body) + '.png')" />
+                <br />
+                {{item.body}}
+              </td>
+              <td>
+                <img :src="require('@/assets/data/carts/wheels/' + getImg(item.wheels) + '.png')" />
+                <br />
+                {{item.wheels}}
+              </td>
+              <td>
+                <img :src="require('@/assets/data/carts/glider/' + getImg(item.glider) + '.png')" />
+                <br />
+                {{item.glider}}
+              </td>
               <td>
                 <button @click="deleteItem(item)">Delete</button>
               </td>
@@ -44,9 +65,11 @@
       </div>
     </div>
 
-    <div class="break"></div>
-
     <div class="section">
+      <div class="break"></div>
+    </div>
+
+    <div class="section new">
       <div class="add" v-if="showing">
         <div class="form">
           <input v-model="racer" placeholder="Player Name">
@@ -56,6 +79,50 @@
           <label>.</label>
           <input type="number" min="0" max="999" v-model="milli" placeholder="Milliseconds">
           <div class="break"></div>
+          <select v-model="character">
+            <option disabled value="">Pick your character</option>
+            <option>Mario</option>
+            <option>Luigi</option>
+            <option>Peach</option>
+            <option>Daisy</option>
+            <option>Rosalina</option>
+            <option>Tanooki Mario</option>
+            <option>Cat Peach</option>
+            <option>Yoshi</option>
+            <option>Toad</option>
+            <option>Koopa Troopa</option>
+            <option>Shy Guy</option>
+            <option>Lakitu</option>
+            <option>Toadette</option>
+            <option>King Boo</option>
+            <option>Baby Mario</option>
+            <option>Baby Luigi</option>
+            <option>Baby Peach</option>
+            <option>Baby Daisy</option>
+            <option>Baby Rosalina</option>
+            <option>Metal Mario</option>
+            <option>Pink Gold Peach</option>
+            <option>Wario</option>
+            <option>Waluigi</option>
+            <option>Donkey Kong</option>
+            <option>Bowser</option>
+            <option>Dry Bones</option>
+            <option>Bowser Jr.</option>
+            <option>Dry Bowser</option>
+            <option>Lemmy</option>
+            <option>Larry</option>
+            <option>Wendy</option>
+            <option>Ludwig</option>
+            <option>Iggy</option>
+            <option>Roy</option>
+            <option>Morton</option>
+            <option>Inkling Girl</option>
+            <option>Inkling Boy</option>
+            <option>Link</option>
+            <option>Villager</option>
+            <option>Isabelle</option>
+            <option>Mii</option>
+          </select>
           <select v-model="body">
             <option disabled value="">Pick your kart</option>
             <option>Standard Kart</option>
@@ -147,6 +214,10 @@
         </div>
       </div>
     </div>
+    <p v-if="!check">You must fill out all fields before submitting</p>
+    <br />
+    <p v-if="!checkNum">Invalid numbers on entries</p>
+    <br />
     <p>To edit your existing record, just re-use your racer name</p>
   </div>
 </template>
@@ -157,6 +228,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+
+    overflow-x: scroll;
+
+    white-space: pre-line;
+
+    flex-direction: column;
 }
 
 table, th, td {
@@ -177,14 +254,17 @@ td, th {
   width: 100%;
 
   display: flex;
-  align-items: center;
-  align-content: center;
-  align-self: center;
   justify-content: center;
-  overflow: auto;
+}
 
-  padding: 0;
-  margin: 0;
+.new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.overflow {
+  overflow: auto;
 }
 
 .tracks {
@@ -214,34 +294,49 @@ td, th {
 .records {
   display: flex;
   flex-direction: column;
-  align-self: center;
 
-  margin: 0;
-  padding: 0;
+  width: 900px;
 
   height: 100%;
   flex-wrap: nowrap;
 }
 
-.records table {
-  width: 900px;
+.records h1 {
   align-self: center;
+  overflow-x: auto;
+}
 
-  table-layout: fixed;
-  overflow: auto;
+.records table {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  width: 900px;
+
   position: relative;
+  table-layout: fixed;
+
+  overflow-x: auto;
+}
+
+.records img {
+  width: 30px;
+  height: 30px;
 }
 
 .add {
   display: flex;
-  align-items: center;
-  white-space: nowrap;
+
+  align-self: center;
+  white-space: wrap;
 }
 
 .add form {
   display: flex;
-  overflow: hidden;
   flex-direction: row;
+  flex-wrap: wrap;
+
+  padding-top: 10px;
 }
 
 .add input {
@@ -263,6 +358,26 @@ td, th {
 .add input[type="number"] {
   width: 100px;
 }
+
+@media only screen and (max-width: 899px) {
+  .section {
+    width: 100%;
+
+    display: flex;
+    justify-content: left;
+    overflow: auto;
+  }
+}
+
+@media only screen and (min-width: 515px) {
+  .new {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+  }
+}
 </style>
 
 <script>
@@ -277,12 +392,15 @@ export default {
       currentTrack: "",
       trackName: "",
       showing: false,
+      check: true,
+      checkNum: true,
       items: [],
       racer: "",
       time: "",
       minute: "",
       second: "",
       milli: "",
+      character: "",
       body: "",
       wheels: "",
       glider: "",
@@ -298,32 +416,32 @@ export default {
     },
     sortedItems: function() {
       function compare(a, b) {
-          if (a.minute < b.minute) {
-              return -1;
-          }
-          if (a.minute > b.minute) {
-              return 1;
-          }
-          if (a.second < b.second) {
+        if (a.minute < b.minute) {
             return -1;
-          }
-          if (a.second > b.second) {
+        }
+        if (a.minute > b.minute) {
             return 1;
-          }
-          if (a.milli < b.milli) {
-            return -1;
-          }
-          if (a.milli > b.milli) {
-            return 1;
-          }
-          return 0;
+        }
+        if (a.second < b.second) {
+          return -1;
+        }
+        if (a.second > b.second) {
+          return 1;
+        }
+        if (a.milli < b.milli) {
+          return -1;
+        }
+        if (a.milli > b.milli) {
+          return 1;
+        }
+        return 0;
       }
       function newArray(items) {
-          var newItems = [];
-          for (var i = 0; i < items.length; i++) {
-              newItems[i] = items[i];
-          }
-          return newItems;
+        var newItems = [];
+        for (var i = 0; i < items.length; i++) {
+            newItems[i] = items[i];
+        }
+        return newItems;
       }
       var newList = newArray(this.sortItems);
       return newList.sort(compare);
@@ -334,7 +452,6 @@ export default {
       this.showing = true;
     },
     calctime(item) {
-      console.log(item);
       let length = item.second.toString().length;
       if (length === 1) {
         item.second = "0" + item.second;
@@ -348,6 +465,69 @@ export default {
       }
       let retime = item.minute + ":" + item.second + "." + item.milli;
       return retime;
+    },
+    checker() {
+      this.checkNum = true;
+
+      if (this.minute.length === 0) {
+        if (isNaN(parseInt(this.minute))) {
+          this.checkNum = false;
+        }
+        return false;
+      }
+
+      if (parseInt(this.minute) < 0) {
+        this.checkNum = false;
+        return false;
+      }
+
+      if (this.second.length === 0) {
+        if (isNaN(parseInt(this.second))) {
+          this.checkNum = false;
+        }
+        return false;
+      }
+
+      if (parseInt(this.second) < 0 || parseInt(this.second) > 59) {
+        this.checkNum = false;
+        return false;
+      }
+
+      if (this.milli.length === 0) {
+        if (isNaN(parseInt(this.milli))) {
+          this.checkNum = false;
+        }
+        return false;
+      }
+
+      if (parseInt(this.milli) < 0 || parseInt(this.milli) > 999) {
+        this.checkNum = false;
+        return false;
+      }
+
+      if (this.racer.length === 0) {
+        return false;
+      }
+      if (this.character.length === 0) {
+        return false;
+      }
+      if (this.body.length === 0) {
+        return false;
+      }
+      if (this.wheels.length === 0) {
+        return false;
+      }
+      if (this.glider.length === 0) {
+        return false;
+      }
+
+      return true;
+    },
+    getImg(name) {
+      if (name != undefined) {
+        let newName = name.replace(/\s+/g, '');
+        return newName;
+      }
     },
     marioKartStadium() {
       this.currentTrack = "mario_kart_stadium";
@@ -375,6 +555,11 @@ export default {
       }
     },
     async upload() {
+      this.check = this.checker();
+      if (this.check === false) {
+        return;
+      }
+
       let filterItems = this.items.filter(item => item.track === this.currentTrack);
       let match = filterItems.find(item => item.racer === this.racer);
       if (match != null && match.track === this.currentTrack) {
@@ -383,6 +568,7 @@ export default {
             minute: this.minute,
             second: this.second,
             milli: this.milli,
+            character: this.character,
             body: this.body,
             wheels: this.wheels,
             glider: this.glider,
@@ -400,6 +586,7 @@ export default {
           minute: this.minute,
           second: this.second,
           milli: this.milli,
+          character: this.character,
           body: this.body,
           wheels: this.wheels,
           glider: this.glider,
