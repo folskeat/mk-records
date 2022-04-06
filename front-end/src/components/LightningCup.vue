@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/lightning/tick-tock_clock.webp" @click="show(); tickTockClock()">
-        <img src="~@/assets/data/courses/tracks/lightning/piranha_plant_slide.webp" @click="show(); piranhaPlantSlide()">
-        <img src="~@/assets/data/courses/tracks/lightning/grumble_volcano.webp" @click="show(); grumbleVolcano()">
-        <img src="~@/assets/data/courses/tracks/lightning/rainbow_road.webp" @click="show(); rainbowRoad()">
+        <img src="~@/assets/data/courses/tracks/lightning/tick-tock_clock.webp" @click="show(); tickTockClock()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lightning/piranha_plant_slide.webp" @click="show(); piranhaPlantSlide()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lightning/grumble_volcano.webp" @click="show(); grumbleVolcano()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lightning/rainbow_road.webp" @click="show(); rainbowRoad()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

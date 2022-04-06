@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/star/sunshine_airport.webp" @click="show(); sunshineAirport()">
-        <img src="~@/assets/data/courses/tracks/star/dolphin_shoals.webp" @click="show(); dolphinShoals()">
-        <img src="~@/assets/data/courses/tracks/star/electrodrome.webp" @click="show(); electrodrome()">
-        <img src="~@/assets/data/courses/tracks/star/mount_wario.webp" @click="show(); mountWario()">
+        <img src="~@/assets/data/courses/tracks/star/sunshine_airport.webp" @click="show(); sunshineAirport()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/star/dolphin_shoals.webp" @click="show(); dolphinShoals()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/star/electrodrome.webp" @click="show(); electrodrome()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/star/mount_wario.webp" @click="show(); mountWario()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

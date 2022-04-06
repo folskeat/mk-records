@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/shell/moo_moo_meadows.webp" @click="show(); mooMooMeadows()">
-        <img src="~@/assets/data/courses/tracks/shell/mario_circuit.webp" @click="show(); marioCircuit()">
-        <img src="~@/assets/data/courses/tracks/shell/cheep_cheep_beach.webp" @click="show(); cheepCheepBeach()">
-        <img src="~@/assets/data/courses/tracks/shell/toad's_turnpike.webp" @click="show(); toadsTurnpike()">
+        <img src="~@/assets/data/courses/tracks/shell/moo_moo_meadows.webp" @click="show(); mooMooMeadows()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/shell/mario_circuit.webp" @click="show(); marioCircuit()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/shell/cheep_cheep_beach.webp" @click="show(); cheepCheepBeach()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/shell/toad's_turnpike.webp" @click="show(); toadsTurnpike()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

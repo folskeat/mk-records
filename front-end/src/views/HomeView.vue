@@ -1,62 +1,84 @@
 <template>
   <div class="home">
+    <video autoplay muted loop id="background">
+      <source src="~@/assets/data/background.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="header">
+      <h1>Mario Kart Records</h1>
+      <h5>A place to show off your racing skills</h5>
+      <div class="audio">
+        <audio controls loop hidden id="playAudio">
+          <source src="~@/assets/data/sounds/course_select.mp3" type="audio/mp3" />
+        </audio>
+        <audio controls hidden id="hoverSound">
+          <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+        </audio>
+        <audio controls hidden id="clickSound">
+          <source src="~@/assets/data/sounds/ok.wav" type="audio/wav" />
+        </audio>
+      </div>
+    </div>
+
+    <div class="music-note contain-note" @click="toggleAudio()" v-if="!play_audio"></div>
+    <div class="no-music-note contain-note" @click="toggleAudio()" v-if="play_audio"></div>
 
     <div class="cups">
       <figure class="swing">
-        <div class="mushroom cup" @click="mushroomcup" v-if="!mushroom"></div>
-        <div class="mushroomclick cup" @click="mushroomcup" v-if="mushroom"></div>
+        <div class="mushroom cup" @click="mushroomcup" @mouseover="playHover()" v-if="!mushroom"></div>
+        <div class="mushroomclick cup" @click="mushroomcup" @mouseover="playHover()" v-if="mushroom"></div>
       </figure>
       <figure class="swing">
-        <div class="flower cup" @click="flowercup" v-if="!flower"></div>
-        <div class="flowerclick cup" @click="flowercup" v-if="flower"></div>
+        <div class="flower cup" @click="flowercup" @mouseover="playHover()" v-if="!flower"></div>
+        <div class="flowerclick cup" @click="flowercup" @mouseover="playHover()" v-if="flower"></div>
       </figure>
       <figure class="swing">
-        <div class="star cup" @click="starcup" v-if="!star"></div>
-        <div class="starclick cup" @click="starcup" v-if="star"></div>
+        <div class="star cup" @click="starcup" @mouseover="playHover()" v-if="!star"></div>
+        <div class="starclick cup" @click="starcup" @mouseover="playHover()" v-if="star"></div>
       </figure>
       <figure class="swing">
-        <div class="special cup" @click="specialcup" v-if="!special"></div>
-        <div class="specialclick cup" @click="specialcup" v-if="special"></div>
+        <div class="special cup" @click="specialcup" @mouseover="playHover()" v-if="!special"></div>
+        <div class="specialclick cup" @click="specialcup" @mouseover="playHover()" v-if="special"></div>
       </figure>
       <figure class="swing">
-        <div class="egg cup" @click="eggcup" v-if="!egg"></div>
-        <div class="eggclick cup" @click="eggcup" v-if="egg"></div>
+        <div class="egg cup" @click="eggcup" @mouseover="playHover()" v-if="!egg"></div>
+        <div class="eggclick cup" @click="eggcup" @mouseover="playHover()" v-if="egg"></div>
       </figure>
       <figure class="swing">
-        <div class="triforce cup" @click="triforcecup" v-if="!triforce"></div>
-        <div class="triforceclick cup" @click="triforcecup" v-if="triforce"></div>
+        <div class="triforce cup" @click="triforcecup" @mouseover="playHover()" v-if="!triforce"></div>
+        <div class="triforceclick cup" @click="triforcecup" @mouseover="playHover()" v-if="triforce"></div>
       </figure>
       <figure class="swing">
-        <div class="golden-dash cup" @click="goldendashcup" v-if="!golden_dash"></div>
-        <div class="golden-dashclick cup" @click="goldendashcupcup" v-if="golden_dash"></div>
+        <div class="golden-dash cup" @click="goldendashcup" @mouseover="playHover()" v-if="!golden_dash"></div>
+        <div class="golden-dashclick cup" @click="goldendashcup" @mouseover="playHover()" v-if="golden_dash"></div>
       </figure>
       <figure class="swing">
-        <div class="shell cup" @click="shellcup" v-if="!shell"></div>
-        <div class="shellclick cup" @click="shellcup" v-if="shell"></div>
+        <div class="shell cup" @click="shellcup" @mouseover="playHover()" v-if="!shell"></div>
+        <div class="shellclick cup" @click="shellcup" @mouseover="playHover()" v-if="shell"></div>
       </figure>
       <figure class="swing">
-        <div class="banana cup" @click="bananacup" v-if="!banana"></div>
-        <div class="bananaclick cup" @click="bananacup" v-if="banana"></div>
+        <div class="banana cup" @click="bananacup" @mouseover="playHover()" v-if="!banana"></div>
+        <div class="bananaclick cup" @click="bananacup" @mouseover="playHover()" v-if="banana"></div>
       </figure>
       <figure class="swing">
-        <div class="leaf cup" @click="leafcup" v-if="!leaf"></div>
-        <div class="leafclick cup" @click="leafcup" v-if="leaf"></div>
+        <div class="leaf cup" @click="leafcup" @mouseover="playHover()" v-if="!leaf"></div>
+        <div class="leafclick cup" @click="leafcup" @mouseover="playHover()" v-if="leaf"></div>
       </figure>
       <figure class="swing">
-        <div class="lightning cup" @click="lightningcup" v-if="!lightning"></div>
-        <div class="lightningclick cup" @click="lightningcup" v-if="lightning"></div>
+        <div class="lightning cup" @click="lightningcup" @mouseover="playHover()" v-if="!lightning"></div>
+        <div class="lightningclick cup" @click="lightningcup" @mouseover="playHover()" v-if="lightning"></div>
       </figure>
       <figure class="swing">
-        <div class="crossing cup" @click="crossingcup" v-if="!crossing"></div>
-        <div class="crossingclick cup" @click="crossingcup" v-if="crossing"></div>
+        <div class="crossing cup" @click="crossingcup" @mouseover="playHover()" v-if="!crossing"></div>
+        <div class="crossingclick cup" @click="crossingcup" @mouseover="playHover()" v-if="crossing"></div>
       </figure>
       <figure class="swing">
-        <div class="bell cup" @click="bellcup" v-if="!bell"></div>
-        <div class="bellclick cup" @click="bellcup" v-if="bell"></div>
+        <div class="bell cup" @click="bellcup" @mouseover="playHover()" v-if="!bell"></div>
+        <div class="bellclick cup" @click="bellcup" @mouseover="playHover()" v-if="bell"></div>
       </figure>
       <figure class="swing">
-        <div class="lucky-cat cup" @click="luckycatcup" v-if="!lucky_cat"></div>
-        <div class="lucky-catclick cup" @click="luckycatcup" v-if="lucky_cat"></div>
+        <div class="lucky-cat cup" @click="luckycatcup" @mouseover="playHover()" v-if="!lucky_cat"></div>
+        <div class="lucky-catclick cup" @click="luckycatcup" @mouseover="playHover()" v-if="lucky_cat"></div>
       </figure>
     </div>
     <div class="break"></div>
@@ -111,8 +133,35 @@
 
 <style scoped>
 
+#background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+
+  z-index: 1;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .track {
   overflow: auto;
+}
+
+.tracks {
+  position: relative;
+
+  z-index: 2;
+}
+
+.tracks table {
+  background: #ffffff;
+  background-color: #ffffff;
 }
 
 .break {
@@ -121,11 +170,15 @@
 }
 
 .cups {
+  position: relative;
+
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
   justify-content: space-around;
+
+  z-index: 2;
 }
 
 .cup {
@@ -133,6 +186,22 @@
   height: 150px;
   
   cursor: pointer;
+}
+
+.contain-note {
+  position: absolute;
+
+  top: 5px;
+  right: 5px;
+
+  width: 50px;
+  height: 50px;
+  
+  cursor: pointer;
+
+  align-self: right;
+
+  z-index: 2;
 }
 
 .mushroom {
@@ -303,6 +372,80 @@
   background-size: 150px;
 }
 
+.header {
+  display: flex;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  z-index: 2;
+}
+
+.header h1 {
+  position: relative;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-size: 48px;
+  font-style: oblique;
+}
+
+.header h5 {
+  position: relative;
+
+  margin-top: 5px;
+  margin-bottom: 10px;
+
+  font-size: 20px;
+}
+
+.audio {
+  position: relative;
+
+  align-self: right;
+  justify-content: right;
+  align-items: right;
+
+  z-index: 2;
+}
+
+.music-note {
+  position: absolute;
+
+  right: 50px;
+  top: 20px;
+  
+  display: flex;
+
+  background-image: url('~@/assets/data/sounds/music_note.png');
+  background-repeat: no-repeat;
+  background-size: 50px;
+
+  align-self: right;
+
+  z-index: 2;
+}
+
+.no-music-note {
+  position: absolute;
+
+  right: 50px;
+  top: 20px;
+
+  display: flex;
+
+  background-image: url('~@/assets/data/sounds/no_music_note.png');
+  background-repeat: no-repeat;
+  background-size: 50px;
+
+  align-self: right;
+
+  z-index: 2;
+}
+
 /* NEW */
 body {background: #eee;}
 
@@ -359,6 +502,7 @@ export default {
   },
   data() {
     return {
+      play_audio: true,
       mushroom: false,
       flower: false,
       star: false,
@@ -376,6 +520,19 @@ export default {
     }
   },
   methods: {
+    toggleAudio() {
+      let myAudio = document.getElementById("playAudio");
+      this.play_audio = !this.play_audio;
+      return myAudio.paused ? myAudio.play() : myAudio.pause();
+    },
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("clickSound");
+      newAudio.play();
+    },
     offcup() {
       this.mushroom = false;
       this.flower = false;
@@ -395,58 +552,72 @@ export default {
     mushroomcup() {
       this.offcup();
       this.mushroom = true;
+      this.playClick();
     },
     flowercup() {
       this.offcup();
       this.flower = true;
+      this.playClick();
     },
     starcup() {
       this.offcup();
       this.star = true;
+      this.playClick();
     },
     specialcup() {
       this.offcup();
       this.special = true;
+      this.playClick();
     },
     eggcup() {
       this.offcup();
       this.egg = true;
+      this.playClick();
     },
     triforcecup() {
       this.offcup();
       this.triforce = true;
+      this.playClick();
     },
     goldendashcup() {
       this.offcup();
       this.golden_dash = true;
+      this.playClick();
     },
     shellcup() {
       this.offcup();
       this.shell = true;
+      this.playClick();
     },
     bananacup() {
       this.offcup();
       this.banana = true;
+      this.playClick();
     },
     leafcup() {
       this.offcup();
       this.leaf = true;
+      this.playClick();
     },
     lightningcup() {
       this.offcup();
       this.lightning = true;
+      this.playClick();
     },
     crossingcup() {
       this.offcup();
       this.crossing = true;
+      this.playClick();
     },
     bellcup() {
       this.offcup();
       this.bell = true;
+      this.playClick();
     },
     luckycatcup() {
       this.offcup();
       this.lucky_cat = true;
+      this.playClick();
     }
   }
 }

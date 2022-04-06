@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/flower/mario_circuit.webp" @click="show(); marioCircuit()">
-        <img src="~@/assets/data/courses/tracks/flower/toad_harbor.webp" @click="show(); toadHarbor()">
-        <img src="~@/assets/data/courses/tracks/flower/twisted_mansion.webp" @click="show(); twistedMansion()">
-        <img src="~@/assets/data/courses/tracks/flower/shy_guy_falls.webp" @click="show(); shyGuyFalls()">
+        <img src="~@/assets/data/courses/tracks/flower/mario_circuit.webp" @click="show(); marioCircuit()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/flower/toad_harbor.webp" @click="show(); toadHarbor()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/flower/twisted_mansion.webp" @click="show(); twistedMansion()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/flower/shy_guy_falls.webp" @click="show(); shyGuyFalls()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

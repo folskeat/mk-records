@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/bell/neo_bowser_city.webp" @click="show(); neoBowserCity()">
-        <img src="~@/assets/data/courses/tracks/bell/ribbon_road.webp" @click="show(); ribbonRoad()">
-        <img src="~@/assets/data/courses/tracks/bell/super_bell_subway.webp" @click="show(); superBellSubway()">
-        <img src="~@/assets/data/courses/tracks/bell/big_blue.webp" @click="show(); bigBlue()">
+        <img src="~@/assets/data/courses/tracks/bell/neo_bowser_city.webp" @click="show(); neoBowserCity()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/bell/ribbon_road.webp" @click="show(); ribbonRoad()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/bell/super_bell_subway.webp" @click="show(); superBellSubway()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/bell/big_blue.webp" @click="show(); bigBlue()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/lucky-cat/tokyo_blur.webp" @click="show(); tokyoBlur()">
-        <img src="~@/assets/data/courses/tracks/lucky-cat/shroom_ridge.png" @click="show(); shroomRidge()">
-        <img src="~@/assets/data/courses/tracks/lucky-cat/sky_garden.png" @click="show(); skyGarden()">
-        <img src="~@/assets/data/courses/tracks/lucky-cat/ninja_hideaway.webp" @click="show(); ninjaHideaway()">
+        <img src="~@/assets/data/courses/tracks/lucky-cat/tokyo_blur.webp" @click="show(); tokyoBlur()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lucky-cat/shroom_ridge.png" @click="show(); shroomRidge()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lucky-cat/sky_garden.png" @click="show(); skyGarden()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/lucky-cat/ninja_hideaway.webp" @click="show(); ninjaHideaway()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

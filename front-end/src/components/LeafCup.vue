@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/leaf/wario_stadium.webp" @click="show(); warioStadium()">
-        <img src="~@/assets/data/courses/tracks/leaf/sherbet_land.webp" @click="show(); sherbetLand()">
-        <img src="~@/assets/data/courses/tracks/leaf/music_park.webp" @click="show(); musicPark()">
-        <img src="~@/assets/data/courses/tracks/leaf/yoshi_valley.webp" @click="show(); yoshiValley()">
+        <img src="~@/assets/data/courses/tracks/leaf/wario_stadium.webp" @click="show(); warioStadium()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/leaf/sherbet_land.webp" @click="show(); sherbetLand()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/leaf/music_park.webp" @click="show(); musicPark()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/leaf/yoshi_valley.webp" @click="show(); yoshiValley()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;

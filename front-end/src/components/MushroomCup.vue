@@ -1,11 +1,17 @@
 <template>
   <div class="wrapper">
+    <audio controls hidden id="hoverSound">
+      <source src="~@/assets/data/sounds/hover.wav" type="audio/wav" />
+    </audio>
+    <audio controls hidden id="courseSound">
+      <source src="~@/assets/data/sounds/select.wav" type="audio/wav" />
+    </audio>
     <div class="section">
       <div class="tracks">
-        <img src="~@/assets/data/courses/tracks/mushroom/mario_kart_stadium.webp" @click="show(); marioKartStadium()">
-        <img src="~@/assets/data/courses/tracks/mushroom/water_park.webp" @click="show(); waterPark()">
-        <img src="~@/assets/data/courses/tracks/mushroom/sweet_sweet_canyon.webp" @click="show(); sweetSweetCanyon()">
-        <img src="~@/assets/data/courses/tracks/mushroom/thwomp_ruins.webp" @click="show(); thwompRuins()">
+        <img src="~@/assets/data/courses/tracks/mushroom/mario_kart_stadium.webp" @click="show(); marioKartStadium()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/mushroom/water_park.webp" @click="show(); waterPark()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/mushroom/sweet_sweet_canyon.webp" @click="show(); sweetSweetCanyon()" @mouseover="playHover()">
+        <img src="~@/assets/data/courses/tracks/mushroom/thwomp_ruins.webp" @click="show(); thwompRuins()" @mouseover="playHover()">
       </div>
     </div>
 
@@ -317,6 +323,9 @@ td, th {
   table-layout: fixed;
 
   overflow-x: auto;
+
+  background: #ffffff;
+  color: #000000;
 }
 
 .records img {
@@ -452,8 +461,17 @@ export default {
     },
   },
   methods: {
+    playHover() {
+      var newAudio = document.getElementById("hoverSound");
+      newAudio.play();
+    },
+    playClick() {
+      var newAudio = document.getElementById("courseSound");
+      newAudio.play();
+    },
     show() {
       this.showing = true;
+      this.playClick();
     },
     calctime(item) {
       let length = item.second.toString().length;
