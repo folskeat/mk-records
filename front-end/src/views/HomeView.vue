@@ -128,6 +128,11 @@
     <div class="break"></div>
     <div class="break"></div>
     <div class="break"></div>
+    <div class="footer">
+      <a href="https://github.com/folskeat/mk-records">
+        <img src="~@/assets/data/github.png">
+      </a>
+    </div>
   </div>
 </template>
 
@@ -147,6 +152,24 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+
+  padding-top: 100px;
+
+  z-index: 2;
+}
+
+.footer img {
+  width: 50px;
+  height: 50px;
+
+  cursor: pointer;
 }
 
 .track {
