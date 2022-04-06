@@ -199,7 +199,7 @@
             <option>Ancient Tires</option>
           </select>
           <select v-model="glider">
-            <option disabled value="">Pick your wheels</option>
+            <option disabled value="">pick your glider</option>
             <option>Super Glider</option>
             <option>Cloud Glider</option>
             <option>Wario Wing</option>
