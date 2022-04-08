@@ -82,46 +82,46 @@
       </figure>
     </div>
     <div class="break"></div>
-    <div class="tracks" v-if="mushroom">
+    <div class="courses" v-if="mushroom">
       <MushroomCup />
     </div>
-    <div class="tracks" v-if="flower">
+    <div class="courses" v-if="flower">
       <FlowerCup />
     </div>
-    <div class="tracks" v-if="star">
+    <div class="courses" v-if="star">
       <StarCup />
     </div>
-    <div class="tracks" v-if="special">
+    <div class="courses" v-if="special">
       <SpecialCup />
     </div>
-    <div class="tracks" v-if="egg">
+    <div class="courses" v-if="egg">
       <EggCup />
     </div>
-    <div class="tracks" v-if="triforce">
+    <div class="courses" v-if="triforce">
       <TriforceCup />
     </div>
-    <div class="tracks" v-if="golden_dash">
+    <div class="courses" v-if="golden_dash">
       <GoldenDashCup />
     </div>
-    <div class="tracks" v-if="shell">
+    <div class="courses" v-if="shell">
       <ShellCup />
     </div>
-    <div class="tracks" v-if="banana">
+    <div class="courses" v-if="banana">
       <BananaCup />
     </div>
-    <div class="tracks" v-if="leaf">
+    <div class="courses" v-if="leaf">
       <LeafCup />
     </div>
-    <div class="tracks" v-if="lightning">
+    <div class="courses" v-if="lightning">
       <LightningCup />
     </div>
-    <div class="tracks" v-if="crossing">
+    <div class="courses" v-if="crossing">
       <CrossingCup />
     </div>
-    <div class="tracks" v-if="bell">
+    <div class="courses" v-if="bell">
       <BellCup />
     </div>
-    <div class="tracks" v-if="lucky_cat">
+    <div class="courses" v-if="lucky_cat">
       <LuckyCatCup />
     </div>
     <div class="break"></div>
@@ -172,17 +172,17 @@
   cursor: pointer;
 }
 
-.track {
+.course {
   overflow: auto;
 }
 
-.tracks {
+.courses {
   position: relative;
 
   z-index: 2;
 }
 
-.tracks table {
+.courses table {
   background: #ffffff;
   background-color: #ffffff;
 }
